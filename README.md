@@ -1,4 +1,4 @@
-# Bee-Chat Server
+# 🐝 Bee-Chat Server
 
 Bee-Chat is a real-time chat application built using **Node.js, Express, and Socket.io**. This repository contains the backend server for handling WebSocket connections and real-time messaging.
 
