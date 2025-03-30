@@ -1,0 +1,25 @@
+{
+  "name": "bee-chat-server",
+  "version": "1.0.0",
+  "description": "Bee-Chat is a real-time chat application built using **Node.js, Express, and Socket.io**. This repository contains the backend server for handling WebSocket connections and real-time messaging.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DarcMattz/bee-chat-server.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DarcMattz/bee-chat-server/issues"
+  },
+  "homepage": "https://github.com/DarcMattz/bee-chat-server#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "socket.io": "^4.8.1"
+  }
+}
