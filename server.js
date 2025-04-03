@@ -42,6 +42,14 @@ io.on("connection", (socket) => {
     io.emit("message", { user: users[socket.id], text: data });
   });
 
+  socket.on("leave", () => {
+    if (users[socket.id]) {
+      io.emit("userLeft", users[socket.id]);
+      delete users[socket.id];
+      io.emit("userCount", Object.keys(users).length);
+    }
+  });
+
   socket.on("disconnect", () => {
     if (users[socket.id]) {
       io.emit("userLeft", users[socket.id]);
