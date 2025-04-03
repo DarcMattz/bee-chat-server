@@ -26,7 +26,6 @@ const users = {};
 
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
-  io.emit("userCount", Object.keys(users).length);
 
   socket.on("join", (username) => {
     users[socket.id] = username;
@@ -44,7 +43,7 @@ io.on("connection", (socket) => {
       delete users[socket.id];
       io.emit("userCount", Object.keys(users).length);
     }
-    console.log("User Leave the chat.");
+    console.log("User left the chat.");
   });
 
   socket.on("disconnect", () => {
