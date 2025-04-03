@@ -26,6 +26,7 @@ const users = {};
 
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
+  io.emit("userCount", Object.keys(users).length);
 
   socket.on("join", (username) => {
     users[socket.id] = username;
