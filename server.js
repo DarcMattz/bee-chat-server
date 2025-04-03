@@ -26,15 +26,11 @@ const users = {};
 
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
-
-  // Emit updated user count to all clients
   io.emit("userCount", Object.keys(users).length);
 
   socket.on("join", (username) => {
     users[socket.id] = username;
     io.emit("userJoined", { user: username, id: socket.id });
-
-    // Update user count
     io.emit("userCount", Object.keys(users).length);
   });
 
@@ -48,17 +44,15 @@ io.on("connection", (socket) => {
       delete users[socket.id];
       io.emit("userCount", Object.keys(users).length);
     }
+    console.log("User Leave the chat.");
   });
 
   socket.on("disconnect", () => {
     if (users[socket.id]) {
       io.emit("userLeft", users[socket.id]);
       delete users[socket.id];
-
-      // Update user count
       io.emit("userCount", Object.keys(users).length);
     }
-
     console.log("User disconnected:", socket.id);
   });
 });
